@@ -73,11 +73,11 @@ If you are developing for deployment on the Mac App Store (because you don't wan
 
 Run `yarn dist:linux`, `yarn dist:linux-intel64`, or `dist:linux-arm64` to make executables for linux in the `binaries` directory _(works on any platform)_
 
-Run `yarn dist:mac`, `yarn dist:mac-intel64`, or `yarn dist:mac-arm64`  to make executables for mac in the `binaries` directory _(only works on macOS)_
+Run `yarn dist:mac`, `yarn dist:mac-intel64`, or `yarn dist:mac-arm64` to make executables for mac in the `binaries` directory _(only works on macOS)_
 
 Run `yarn dist:win`, `yarn dist:win-intel64`, or `yarn dist:win-arm64` to make executables for windows in the `binaries` directory _(only works on windows)_
 
-Run `yarn dist:win-docker`, `yarn dist:win-docker-intel64`, or `yarn dist:win-docker-arm64`,  to make executable fors windows in the `binaries` directory _(works on macOS or linux)_
+Run `yarn dist:win-docker`, `yarn dist:win-docker-intel64`, or `yarn dist:win-docker-arm64`, to make executable fors windows in the `binaries` directory _(works on macOS or linux)_
 
 [TOC](#table-of-contents 'Jump back to the Table of Contents')
 
