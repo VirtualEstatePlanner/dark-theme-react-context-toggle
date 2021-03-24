@@ -2,25 +2,21 @@ import * as React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 
-const preventDefault: Function = (event: any) => {
-  event.preventDefault()
-}
-
 const useStyles = makeStyles({
   depositContext: {
     flex: 1,
   },
 })
 
-export default function UserCard() {
+export const UserCard: Function = () => {
   const classes = useStyles()
   return (
     <React.Fragment>
       <Typography component='h2' variant='h6' color='primary'>
-        Specialist
+        Mad Doctor
       </Typography>
       <Typography component='h2' variant='h5' color='primary'>
-        uddeshya.singh
+        George Georgulas IV
       </Typography>
       <Typography variant='subtitle1'>Contest Rating : 1511</Typography>
       <Typography variant='subtitle1'>Contribution : +10</Typography>

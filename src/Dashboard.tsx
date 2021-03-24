@@ -6,10 +6,10 @@ import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import { mainListItems } from './listItems'
-import { orange, lightBlue, deepPurple, deepOrange } from '@material-ui/core/colors'
+import { orange, lightBlue, deepPurple, deepOrange, grey } from '@material-ui/core/colors'
 import { Chart } from './Chart'
-import UserCard from './UserCard'
-import Submissions from './Submissions'
+import { UserCard } from './UserCard'
+import { Submissions } from './Submissions'
 
 // For Switch Theming
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
@@ -19,7 +19,7 @@ const Copyright: Function = () => {
     <Typography variant='body2' color='textSecondary' align='center'>
       {'Copyright © '}
       <Link color='inherit' href='https://material-ui.com/'>
-        Uddeshya Singh
+        George Georgulas IV
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -109,18 +109,29 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export const Dashboard: Function = () => {
-  const [open, setOpen] = React.useState(false)
+  const [drawerOpen, setDrawerOpen] = React.useState(false)
   const [darkState, setDarkState] = React.useState(false)
-  const palletType = darkState ? 'dark' : 'light'
   const mainPrimaryColor = darkState ? orange[500] : lightBlue[500]
   const mainSecondaryColor = darkState ? deepOrange[900] : deepPurple[500]
+  const defaultBackgroundColor = darkState ? grey[800] : grey[200]
+  const paperBackgroundColor = darkState ? grey[900] : grey[100]
+  const textPrimaryColor = darkState ? '#FFFFFF' : '#000000'
+  const textSecondaryColor = darkState ? '#DDDDDD' : '#222222'
   const darkTheme = createMuiTheme({
     palette: {
+      background: {
+        default: defaultBackgroundColor,
+        paper: paperBackgroundColor,
+      },
       primary: {
         main: mainPrimaryColor,
       },
       secondary: {
         main: mainSecondaryColor,
+      },
+      text: {
+        primary: textPrimaryColor,
+        secondary: textSecondaryColor,
       },
     },
   })
@@ -129,11 +140,8 @@ export const Dashboard: Function = () => {
     setDarkState(!darkState)
   }
 
-  const handleDrawerOpen = () => {
-    setOpen(true)
-  }
-  const handleDrawerClose = () => {
-    setOpen(false)
+  const handleDrawer = () => {
+    setDrawerOpen(!drawerOpen)
   }
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
 
@@ -141,9 +149,9 @@ export const Dashboard: Function = () => {
     <ThemeProvider theme={darkTheme}>
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar position='absolute' className={clsx(classes.appBar, open && classes.appBarShift)}>
+        <AppBar position='absolute' className={clsx(classes.appBar, drawerOpen && classes.appBarShift)}>
           <Toolbar className={classes.toolbar}>
-            <IconButton edge='start' color='inherit' aria-label='open drawer' onClick={handleDrawerOpen} className={clsx(classes.menuButton, open && classes.menuButtonHidden)}>
+            <IconButton edge='start' color='inherit' aria-label='open drawer' onClick={handleDrawer} className={clsx(classes.menuButton, drawerOpen && classes.menuButtonHidden)}>
               <MenuIcon />
             </IconButton>
             <Typography component='h1' variant='h6' color='inherit' noWrap className={classes.title}>
@@ -161,11 +169,11 @@ export const Dashboard: Function = () => {
         <Drawer
           variant='permanent'
           classes={{
-            paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+            paper: clsx(classes.drawerPaper, !drawerOpen && classes.drawerPaperClose),
           }}
-          open={open}>
+          open={drawerOpen}>
           <div className={classes.toolbarIcon}>
-            <IconButton onClick={handleDrawerClose}>
+            <IconButton onClick={handleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
           </div>

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ListItemIcon, ListItem, ListItemText, ListSubheader } from '@material-ui/core'
+import { ListItemIcon, ListItem, ListItemText } from '@material-ui/core'
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import PeopleIcon from '@material-ui/icons/People'
 import BarChartIcon from '@material-ui/icons/BarChart'

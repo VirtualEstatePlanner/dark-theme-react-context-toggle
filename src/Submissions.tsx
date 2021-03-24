@@ -20,16 +20,12 @@ const createData: Function = (id: number, hash: number, when: Date, who: string,
 }
 
 const rows = [
-  createData(0, 79053104, 'May/05/2020 17:24UTC+5.5', 'uddeshya.singh', 'D - Alena And The Heater', 'Python3', 'Wrong answer on test 7	', '187 ms', '7900 KB'),
-  createData(1, 79053086, 'May/05/2020 17:14UTC+5.5', 'uddeshya.singh', 'D - Alena And The Heater', 'C++14', 'Wrong answer on test 7	', '187 ms', '600 KB'),
-  createData(2, 78908900, 'May/03/2020 21:48UTC+5.5', 'uddeshya.singh', 'C - Summarize to the Power of Two', 'C++14', 'Accepted', '670 ms', '4400 KB'),
-  createData(3, 78908548, 'May/03/2020 21:45UTC+5.5	', 'uddeshya.singh', 'D - Alena And The Heater', 'C++14', 'Wrong answer on test 5	', '31 ms', '0 KB'),
-  createData(4, 78896002, 'May/03/2020 19:06UTC+5.5	', 'uddeshya.singh', 'B - Koala and Lights', 'C++14', 'Accepted', '155 ms', '300 KB'),
+  createData(0, 79053104, 'May/05/2020 17:24UTC+5.5', 'George', 'D - Alena And The Heater', 'Python3', 'Wrong answer on test 7	', '187 ms', '7900 KB'),
+  createData(1, 79053086, 'May/05/2020 17:14UTC+5.5', 'George', 'D - Alena And The Heater', 'C++14', 'Wrong answer on test 7	', '187 ms', '600 KB'),
+  createData(2, 78908900, 'May/03/2020 21:48UTC+5.5', 'George', 'C - Summarize to the Power of Two', 'C++14', 'Accepted', '670 ms', '4400 KB'),
+  createData(3, 78908548, 'May/03/2020 21:45UTC+5.5	', 'George', 'D - Alena And The Heater', 'C++14', 'Wrong answer on test 5	', '31 ms', '0 KB'),
+  createData(4, 78896002, 'May/03/2020 19:06UTC+5.5	', 'George', 'B - Koala and Lights', 'C++14', 'Accepted', '155 ms', '300 KB'),
 ]
-
-const preventDefault: Function = (event: { preventDefault: () => void }) => {
-  event.preventDefault()
-}
 
 const useStyles = makeStyles((theme) => ({
   seeMore: {
@@ -37,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Submissions() {
+export const Submissions: Function = (): React.ReactElement => {
   const classes = useStyles()
   return (
     <>
@@ -59,14 +55,14 @@ export default function Submissions() {
           {rows.map((row: ISubmission) => (
             <TableRow key={row.id}>
               <TableCell>
-                <Link color='primary' href='#' onClick={preventDefault()}>
+                <Link color='primary' href='#'>
                   {row.hash}
                 </Link>
               </TableCell>
               <TableCell>{row.when}</TableCell>
               <TableCell>{row.who}</TableCell>
               <TableCell>
-                <Link color='primary' href='#' onClick={preventDefault()}>
+                <Link color='primary' href='#'>
                   {row.problem}
                 </Link>
               </TableCell>
@@ -83,7 +79,7 @@ export default function Submissions() {
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
-        <Link color='primary' href='#' onClick={preventDefault()}>
+        <Link color='primary' href='#'>
           See more Submissions
         </Link>
       </div>
